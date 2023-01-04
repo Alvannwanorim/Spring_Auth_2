@@ -30,7 +30,7 @@ public AuthenticationResponse authenticate(AuthenticationRequest request) {
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(
             request.getEmail(), 
-            request.getPasswprd()
+            request.getPassword()
             )
     );
     var user = repository.findByEmail(request.getEmail()).orElseThrow();
