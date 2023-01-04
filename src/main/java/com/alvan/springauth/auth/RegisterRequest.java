@@ -17,5 +17,5 @@ public class RegisterRequest {
 
     private String email;
     
-    private String passwprd;
+    private String password;
 }
