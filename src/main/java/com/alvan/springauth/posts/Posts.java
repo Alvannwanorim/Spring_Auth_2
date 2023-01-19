@@ -1,6 +1,5 @@
 package com.alvan.springauth.posts;
 
-import java.sql.Date;
 
 import com.alvan.springauth.entity.User;
 
@@ -36,10 +35,6 @@ public class Posts {
     private String status;
 
     private String tags;
-
-    private Date createdAt;
-
-    private Date updatedAt;
 
     @ManyToOne(
         cascade = CascadeType.ALL,

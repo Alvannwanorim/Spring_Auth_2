@@ -17,7 +17,6 @@ public class UsersController {
 
     if (principal instanceof UserDetails) {
     String username = ((UserDetails)principal).getUsername();
-    System.out.println();
     return ResponseEntity.ok(username);
     } else {
     // String username = principal.toString();
