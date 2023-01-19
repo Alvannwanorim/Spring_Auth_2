@@ -12,12 +12,12 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
 
     final PostService postService;
     
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<Object> createPost(@RequestBody PostRequest request){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(principal instanceof UserDetails){
