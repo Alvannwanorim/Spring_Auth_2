@@ -1,6 +1,5 @@
 package com.alvan.springauth.posts;
 
-import javax.naming.NameNotFoundException;
 
 import org.springframework.stereotype.Service;
 
