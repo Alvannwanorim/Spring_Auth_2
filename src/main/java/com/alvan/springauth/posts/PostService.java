@@ -28,5 +28,9 @@ public class PostService {
         return post;
 
     }
+
+    public Object getPosts() {
+        return repository.findAll();
+    }
     
 }
