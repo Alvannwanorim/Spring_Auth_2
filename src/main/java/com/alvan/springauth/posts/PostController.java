@@ -4,10 +4,14 @@ package com.alvan.springauth.posts;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -33,6 +37,26 @@ public class PostController {
     @GetMapping()
     public ResponseEntity<Object> getPosts(){
         return ResponseEntity.ok(postService.getPosts());
+      
+    }
+    @GetMapping("/{user)")
+    public ResponseEntity<Object> getPostByUser(@PathVariable("userId") String userId){
+        return ResponseEntity.ok(postService.getPostByUser(userId));
+      
+    }
+    @GetMapping("/{postId}")
+    public ResponseEntity<Object> getPost(@PathVariable("postId") String postId){
+        return ResponseEntity.ok(postService.getPost(postId));
+      
+    }
+    @PutMapping("/{postId}")
+    public ResponseEntity<Object> updatePost(@PathVariable("postId") String postId){
+        return ResponseEntity.ok(postService.updatePost(postId));
+      
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<Object> deletePost(@RequestParam(name = "postId") String postId){
+        return ResponseEntity.ok(postService.deletePost(postId));
       
     }
 }

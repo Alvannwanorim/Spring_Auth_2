@@ -31,5 +31,21 @@ public class PostService {
     public Object getPosts() {
         return repository.findAll();
     }
+
+    public Object getPostByUser(String userId) {
+        return null;
+    }
+
+    public Object getPost(String postId) {
+        return null;
+    }
+
+    public Object updatePost(String postId) {
+        return null;
+    }
+
+    public Object deletePost(String postId) {
+        return null;
+    }
     
 }
