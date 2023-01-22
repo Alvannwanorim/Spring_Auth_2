@@ -33,13 +33,23 @@ public class PostController {
         return null;
 
     }
+    @GetMapping("/logged-in-user")
+    public ResponseEntity<Object> getLoggedInUserPosts(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal instanceof UserDetails){
+            String username = ((UserDetails)principal).getUsername();
+            return ResponseEntity.ok(postService.getLoggedInUserPosts( username));
+        }
+        return null;
+
+    }
 
     @GetMapping()
     public ResponseEntity<Object> getPosts(){
         return ResponseEntity.ok(postService.getPosts());
       
     }
-    @GetMapping("/{user)")
+    @GetMapping("/{user}")
     public ResponseEntity<Object> getPostByUser(@PathVariable("userId") String userId){
         return ResponseEntity.ok(postService.getPostByUser(userId));
       

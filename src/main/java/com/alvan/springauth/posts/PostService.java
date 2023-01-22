@@ -33,18 +33,22 @@ public class PostService {
     }
 
     public Object getPostByUser(String userId) {
-        return null;
+        return repository.findByUserId(userId);
     }
 
     public Object getPost(String postId) {
-        return null;
+        return repository.findByPostId(postId);
     }
 
     public Object updatePost(String postId) {
-        return null;
+        return repository.findByPostId(postId);
     }
 
     public Object deletePost(String postId) {
+        return null;
+    }
+
+    public Object getLoggedInUserPosts(String username) {
         return null;
     }
     
