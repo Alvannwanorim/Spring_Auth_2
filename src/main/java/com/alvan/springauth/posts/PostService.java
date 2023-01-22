@@ -37,7 +37,7 @@ public class PostService {
     }
 
     public Object getPost(Long postId) {
-        return repository.findById(postId).get();
+        return repository.findById(postId);
     }
 
     public Object updatePost(Long postId, UpdatePostRequest updatePostRequest) {

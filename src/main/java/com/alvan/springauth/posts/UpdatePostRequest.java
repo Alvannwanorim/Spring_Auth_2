@@ -13,8 +13,4 @@ public class UpdatePostRequest {
     private String title;
 
     private String content;
-
-    private String status;
-
-    private String tags;
 }
