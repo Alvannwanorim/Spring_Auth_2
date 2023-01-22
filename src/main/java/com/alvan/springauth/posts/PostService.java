@@ -37,11 +37,11 @@ public class PostService {
     }
 
     public Object getPost(Long postId) {
-        return repository.findByPostId(postId);
+        return repository.findById(postId).get();
     }
 
     public Object updatePost(Long postId, UpdatePostRequest updatePostRequest) {
-       Posts posts = repository.findByPostId(postId).get();
+       Posts posts = repository.findById(postId).get();
         posts.setContent(updatePostRequest.getContent());
         posts.setTitle(updatePostRequest.getTitle());
         repository.save(posts);

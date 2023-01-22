@@ -1,19 +1,19 @@
 package com.alvan.springauth.posts;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PostRepository extends CrudRepository<Posts,Long> {
-    List<Posts> findPostsByUser(String userId);
+    List<Posts> findPostsByUserId(String userId);
 
-    Optional<Posts> findById(Long postId);
-
-    Optional<Posts> findByPostId(Long postId);
-
+    @Query(
+        nativeQuery = true,
+        value = "SELECT * FROM post_entity WHERE id=?1"
+    )
     Object findByUserId(Long userId);
     
 }
