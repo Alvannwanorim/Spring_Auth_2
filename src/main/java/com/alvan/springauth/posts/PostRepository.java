@@ -1,17 +1,18 @@
 package com.alvan.springauth.posts;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostRepository extends JpaRepository<Posts,Long> {
+public interface PostRepository extends CrudRepository<Posts,Long> {
     List<Posts> findPostsByUser(String userId);
 
-    Posts findById(String postId);
+    Optional<Posts> findById(Long postId);
 
-    Object findByPostId(String postId);
+    Optional<Posts> findByPostId(Long postId);
 
     Object findByUserId(Long userId);
     

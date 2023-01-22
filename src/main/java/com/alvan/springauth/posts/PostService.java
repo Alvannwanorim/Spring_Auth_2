@@ -36,12 +36,16 @@ public class PostService {
         return repository.findByUserId(userId);
     }
 
-    public Object getPost(String postId) {
+    public Object getPost(Long postId) {
         return repository.findByPostId(postId);
     }
 
-    public Object updatePost(String postId) {
-        return repository.findByPostId(postId);
+    public Object updatePost(Long postId, UpdatePostRequest updatePostRequest) {
+       Posts posts = repository.findByPostId(postId).get();
+        posts.setContent(updatePostRequest.getContent());
+        posts.setTitle(updatePostRequest.getTitle());
+        repository.save(posts);
+        return posts;
     }
 
     public Object deletePost(String postId) {
