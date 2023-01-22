@@ -13,6 +13,6 @@ public interface PostRepository extends JpaRepository<Posts,Long> {
 
     Object findByPostId(String postId);
 
-    Object findByUserId(String userId);
+    Object findByUserId(Long userId);
     
 }

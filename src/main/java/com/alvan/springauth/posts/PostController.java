@@ -50,7 +50,7 @@ public class PostController {
       
     }
     @GetMapping("/{user}")
-    public ResponseEntity<Object> getPostByUser(@PathVariable("userId") String userId){
+    public ResponseEntity<Object> getPostByUser(@PathVariable("userId") Long userId){
         return ResponseEntity.ok(postService.getPostByUser(userId));
       
     }

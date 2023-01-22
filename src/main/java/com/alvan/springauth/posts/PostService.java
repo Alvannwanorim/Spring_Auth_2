@@ -32,7 +32,7 @@ public class PostService {
         return repository.findAll();
     }
 
-    public Object getPostByUser(String userId) {
+    public Object getPostByUser(Long userId) {
         return repository.findByUserId(userId);
     }
 
@@ -49,7 +49,9 @@ public class PostService {
     }
 
     public Object getLoggedInUserPosts(String username) {
-        return null;
+        User user = userRepository.findByUsername(username);
+        Long userId = user.getId();
+        return repository.findByUserId(userId);
     }
     
 }
