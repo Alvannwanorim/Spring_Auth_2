@@ -15,7 +15,7 @@ public class PostService {
     final PostRepository repository;
     final UserRepository userRepository;
 
-    public Object createPost(PostRequest request, String username) {
+    public Object createPost(Posts request, String username) {
         User user = userRepository.findByUsername(username);
         Posts post = new Posts();
         post.setTitle(request.getTitle());

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -24,7 +25,7 @@ public class PostController {
     final PostService postService;
     
     @PostMapping("/create")
-    public ResponseEntity<Object> createPost(@RequestBody PostRequest request){
+    public ResponseEntity<Object> createPost(@Valid @RequestBody Posts request)throws Exception{
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(principal instanceof UserDetails){
             String username = ((UserDetails)principal).getUsername();
